@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdur Rehman Kashif — Software Engineer</title>
+<meta name="description" content="Portfolio of Abdur Rehman Kashif, BSc Computer Science graduate — full-stack, web and mobile development projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDF0F4;
+    --ink:#16233A;
+    --ink-soft:#4A5670;
+    --grid:#C9D2DD;
+    --accent:#A63A2E;
+    --accent-2:#3F6B5C;
+    --card:#FFFFFF;
+    --border:#1C2C46;
+    --max:880px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px);
+    background-attachment:fixed;
+    opacity:1;
+    line-height:1.55;
+    font-size:16px;
+  }
+
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  a{ color:var(--accent); }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+  /* ---------- nav ---------- */
+  nav.top{
+    position:sticky; top:0; z-index:10;
+    background:rgba(237,240,244,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--grid);
+  }
+  nav.top .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+  }
+  nav.top .brand{
+    font-weight:600; font-size:15px; letter-spacing:0.01em;
+    text-decoration:none; color:var(--ink);
+  }
+  nav.top .links{ display:flex; gap:22px; }
+  nav.top .links a{
+    color:var(--ink-soft); text-decoration:none; font-size:14px;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+  }
+  nav.top .links a:hover{ color:var(--ink); border-bottom-color:var(--accent); }
+
+  /* ---------- hero / title block ---------- */
+  header.hero{ padding:56px 0 24px; }
+  .titleblock{
+    background:var(--card);
+    border:1.5px solid var(--border);
+    display:grid;
+    grid-template-columns:1fr 148px;
+    animation:stamp 0.5s ease-out;
+  }
+  @keyframes stamp{
+    from{ opacity:0; transform:translateY(6px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .titleblock-main{ padding:28px 28px 24px; border-right:1.5px solid var(--border); }
+  .titleblock h1{
+    margin:0 0 4px;
+    font-size:clamp(28px, 4vw, 38px);
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .role{ font-size:17px; color:var(--ink-soft); margin:0 0 16px; font-weight:500; }
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:8px 18px;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft);
+    border-top:1px dashed var(--grid); padding-top:14px; margin-bottom:18px;
+  }
+  .meta-row span::before{ content:"› "; color:var(--accent); }
+  .status{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    color:var(--accent-2); border:1px solid var(--accent-2);
+    padding:3px 8px; margin-bottom:16px; letter-spacing:0.02em;
+  }
+  .status::before{ content:"● "; }
+  .contact-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .contact-row a{
+    font-size:13.5px; text-decoration:none; color:var(--ink);
+    border:1px solid var(--border); padding:7px 12px;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .contact-row a:hover{ background:var(--ink); color:var(--paper); }
+
+  .photo-box{
+    display:flex; align-items:center; justify-content:center;
+    padding:14px;
+  }
+  .photo-frame{
+    width:100%; aspect-ratio:3/4;
+    border:1.5px dashed var(--grid);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:10px;
+    background-repeat:no-repeat; background-size:cover; background-position:center;
+  }
+  .photo-frame span{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--ink-soft);
+    line-height:1.5;
+  }
+
+  @media (max-width:640px){
+    .titleblock{ grid-template-columns:1fr; }
+    .titleblock-main{ border-right:none; border-bottom:1.5px solid var(--border); }
+    .photo-box{ padding:20px 28px 28px; }
+    .photo-frame{ aspect-ratio:16/9; max-width:220px; margin:0 auto; }
+  }
+
+  /* ---------- sections ---------- */
+  section{ padding:44px 0; }
+  section h2{
+    font-size:20px; font-weight:600; margin:0 0 18px;
+    padding-bottom:10px; border-bottom:1.5px solid var(--border);
+  }
+  .lede{ max-width:66ch; color:var(--ink-soft); font-size:15.5px; }
+  p.bio{ max-width:68ch; font-size:15.5px; }
+
+  /* skills */
+  .skill-group{ margin-bottom:18px; }
+  .skill-group h3{
+    font-size:12.5px; font-family:'IBM Plex Mono', monospace; font-weight:500;
+    color:var(--ink-soft); margin:0 0 10px; text-transform:none;
+  }
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    border:1px solid var(--border); padding:5px 10px; color:var(--ink);
+    background:var(--card);
+  }
+
+  /* projects */
+  .project{
+    background:var(--card); border:1.5px solid var(--border);
+    margin-bottom:20px;
+  }
+  .project-head{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+    padding:18px 20px 12px;
+  }
+  .project-head h3{ margin:0; font-size:17px; font-weight:600; }
+  .badge{
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    border:1px solid var(--ink-soft); color:var(--ink-soft);
+    padding:3px 8px; white-space:nowrap; flex-shrink:0;
+  }
+  .project-body{ padding:0 20px 20px; }
+  .project-body p{ margin:0 0 14px; font-size:14.5px; color:var(--ink); max-width:70ch; }
+  .stack-row{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .project-links{ display:flex; flex-wrap:wrap; gap:10px; }
+  .project-links a, .project-links span.pending{
+    font-size:13px; text-decoration:none; padding:7px 12px;
+    border:1px solid var(--border); display:inline-flex; align-items:center; gap:6px;
+  }
+  .project-links a{ color:var(--ink); }
+  .project-links a:hover{ background:var(--ink); color:var(--paper); }
+  .project-links span.pending{
+    color:var(--ink-soft); border-style:dashed; border-color:var(--grid);
+  }
+
+  /* contact / footer */
+  footer{ padding:44px 0 60px; }
+  footer .contact-row a{ background:var(--card); }
+  footer p.note{ color:var(--ink-soft); font-size:13px; margin-top:24px; max-width:60ch; }
+
+  ::selection{ background:var(--accent); color:#fff; }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">AR Kashif</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<header class="hero wrap">
+  <div class="titleblock">
+    <div class="titleblock-main">
+      <h1>Abdur Rehman Kashif</h1>
+      <p class="role">Graduate Software Engineer</p>
+
+      <div class="status">Available for graduate roles &amp; internships</div>
+
+      <div class="meta-row">
+        <span>BSc (Hons) Computer Science — University of Westminster</span>
+        <span>London, UK</span>
+      </div>
+
+      <div class="contact-row">
+        <a href="mailto:abdurrehmankashif15@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/akashif" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/AKashif7" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="photo-box">
+      <!--
+        REPLACE ME:
+        Swap this div's background-image for your own headshot.
+        Put your photo file at:  assets/img/profile.jpg
+        Then change the style below from "background-image:none"
+        to:  style="background-image:url('assets/img/profile.jpg');"
+        Recommended: a square-ish, well-lit headshot, at least 500x650px.
+      -->
+      <div class="photo-frame" style="background-image:none;">
+        <span>PHOTO<br>assets/img/<br>profile.jpg</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="wrap">
+  <h2>About</h2>
+  <p class="bio">
+    I'm a BSc (Hons) Computer Science graduate from the University of Westminster, specialising in full-stack
+    web development with growing experience in mobile app development. I like taking a project from a rough idea
+    through to a working, deployed build — most recently Icon Jobs, a Django-based job marketplace I designed
+    and built independently as my final year project. I've also worked as part of a team, leading a group project
+    for a sustainable real-estate site and contributing to a staff-performance tracker built for a real client brief.
+    I'm currently looking for a graduate role or internship in Software Engineering, Web Development or Mobile App
+    Development, where I can keep building things people actually use.
+  </p>
+</section>
+
+<section id="skills" class="wrap">
+  <h2>Skills</h2>
+
+  <div class="skill-group">
+    <h3>languages</h3>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Java</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">SQL</span>
+      <span class="tag">Kotlin</span>
+      <span class="tag">C#</span>
+      <span class="tag">PHP</span>
+      <span class="tag">HTML &amp; CSS</span>
+    </div>
+  </div>
+
+  <div class="skill-group">
+    <h3>frameworks &amp; platforms</h3>
+    <div class="tags">
+      <span class="tag">Django</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">MongoDB</span>
+      <span class="tag">MySQL</span>
+      <span class="tag">Android Studio</span>
+      <span class="tag">Unity</span>
+      <span class="tag">Linux</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="wrap">
+  <h2>Projects</h2>
+
+  <!-- Icon Jobs -->
+  <div class="project">
+    <div class="project-head">
+      <h3>Icon Jobs — Micro Job Matchmaking Platform</h3>
+      <span class="badge">solo · final year project</span>
+    </div>
+    <div class="project-body">
+      <p>
+        A job marketplace connecting users with micro job opportunities, designed and built independently
+        from concept through to a working, deployed system. Architected across 7 modular Django apps
+        covering accounts, listings, applications and messaging, with multi-criteria search by salary,
+        location, work mode and job type.
+      </p>
+      <div class="stack-row">Python · Django · Tailwind CSS · SQLite3</div>
+      <div class="project-links">
+        <a href="https://github.com/AKashif7/IconJobs-Final" target="_blank" rel="noopener">View code on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKY Health Check -->
+  <div class="project">
+    <div class="project-head">
+      <h3>SKY Health Check — Employee Performance Tracker</h3>
+      <span class="badge">team of 5 · client brief</span>
+    </div>
+    <div class="project-body">
+      <p>
+        A performance-tracking web application built for SKY Broadband, letting employees review and track
+        teammates' progress within their teams. Involved a full first phase of system design (Figma + Draw.io,
+        including the entity–relationship model behind it) before development, delivered as a group to a
+        First-class standard.
+      </p>
+      <div class="stack-row">HTML · CSS · JavaScript · Java · Python · Django · SQL</div>
+      <div class="project-links">
+        <a href="https://github.com/MAIIFYA/Z.I.A.A.A.git" target="_blank" rel="noopener">Team repository</a>
+        <a href="https://youtu.be/ZBEM2yVwdT0" target="_blank" rel="noopener">Demo video</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LuxeV -->
+  <div class="project">
+    <div class="project-head">
+      <h3>LuxeV — Sustainable Real Estate Website</h3>
+      <span class="badge">team lead</span>
+    </div>
+    <div class="project-body">
+      <p>
+        A website for a sustainable luxury real-estate brand, LuxeV. Led the project as team manager —
+        allocating tasks, setting milestones and keeping the group on track — and delivered it to a
+        First-class grade.
+      </p>
+      <div class="stack-row">HTML · CSS · JavaScript</div>
+      <div class="project-links">
+        <a href="https://github.com/AKashif7/LuxeV" target="_blank" rel="noopener">View code on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie App -->
+  <div class="project">
+    <div class="project-head">
+      <h3>Movie App</h3>
+      <span class="badge">solo · Android</span>
+    </div>
+    <div class="project-body">
+      <p>
+        An Android app that connects to a movie database API for search, detail views and a favourites list,
+        using Retrofit for networking and Room for local storage.
+      </p>
+      <div class="stack-row">Kotlin · Android Studio · Retrofit · Room</div>
+      <div class="project-links">
+        <span class="pending">Source available on request</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bookstore API -->
+  <div class="project">
+    <div class="project-head">
+      <h3>Bookstore API System</h3>
+      <span class="badge">solo · backend</span>
+    </div>
+    <div class="project-body">
+      <p>
+        A RESTful API for bookstore management, with endpoints for inventory, customer accounts and order
+        processing, plus JWT-based authentication and error handling.
+      </p>
+      <div class="stack-row">Java · Spring Boot · JWT</div>
+      <div class="project-links">
+        <span class="pending">Source available on request</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dice Game -->
+  <div class="project">
+    <div class="project-head">
+      <h3>Dice Mini Game</h3>
+      <span class="badge">solo · Android</span>
+    </div>
+    <div class="project-body">
+      <p>
+        A small probability-based dice game for Android, with score tracking, turn management and dice-roll
+        animations built on top of core random-number and win-condition logic.
+      </p>
+      <div class="stack-row">Kotlin · Android Studio</div>
+      <div class="project-links">
+        <span class="pending">Source available on request</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer id="contact" class="wrap">
+  <h2>Contact</h2>
+  <div class="contact-row">
+    <a href="mailto:abdurrehmankashif15@gmail.com">abdurrehmankashif15@gmail.com</a>
+    <a href="https://www.linkedin.com/in/akashif" target="_blank" rel="noopener">linkedin.com/in/akashif</a>
+    <a href="https://github.com/AKashif7" target="_blank" rel="noopener">github.com/AKashif7</a>
+  </div>
+  <p class="note">Source code for this page: <code class="mono">github.com/AKashif7/github-portfolio</code></p>
+</footer>
+
+</body>
+</html>
